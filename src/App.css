@@ -1,0 +1,142 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.white-content {
+  background: #201f1f;
+}
+
+/* Toggle CSS */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+}
+
+.wrapper .switch {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.wrapper .switch input {
+  display: none;
+}
+
+.wrapper .switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #e74a42;
+  transition: all 1.4s;
+  border-radius: 50px;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.wrapper .switch .slider:before,
+.wrapper .switch .slider:after {
+  content: '';
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  left: 5px;
+  bottom: 5px;
+  border-radius: 30px;
+  background-color: #fff;
+}
+
+.wrapper .switch .slider:before {
+  transition: 0.4s;
+}
+
+.wrapper .switch .slider:after {
+  transition: 0.5s;
+}
+
+.wrapper .switch .sky {
+  position: absolute;
+  left: -40%;
+  top: -150px;
+  width: 100px;
+  height: 100px;
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.wrapper .switch .sky .outer {
+  background: #e77b21;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: -11px;
+  border-radius: 5px;
+  animation: rotateSun 5s infinite linear;
+}
+
+.wrapper .switch .sky .inner {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: #ffd65a;
+  top: -12px;
+  overflow: hidden;
+}
+
+
+
+.wrapper .switch input:checked + .slider {
+  background-color: transparent;
+}
+
+.wrapper .switch input:checked + .slider:before {
+  transform: translateX(70px);
+}
+
+.wrapper .switch input:checked + .slider:after {
+  transform: translateX(70px);
+}
+
+.wrapper .switch input:checked ~ .sky {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.wrapper .switch input:checked ~ .sky .cloud {
+  animation: swingCloud 10s infinite linear;
+}
+
+@keyframes rotateSun {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes swingCloud {
+  50% {
+    transform: translateX(50px);
+  }
+}
